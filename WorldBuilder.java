@@ -11,7 +11,6 @@ public class WorldBuilder{
      * *Draws a horizontal row of beepers across the middle street
      * *of the World.
      * */
-
     //street = y
     //ave = x
     public static void pattern1(int street, int ave){
