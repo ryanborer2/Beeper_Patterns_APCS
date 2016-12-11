@@ -35,9 +35,14 @@ public class WorldBuilder{
     //street = y
     //ave = x
     public static void pattern3(int rows, int cols){
-        System.out.println("ryan B");
+        World.reset();
+        World.setSize(rows, cols);
+        World.setVisible(true);
+        
+        for(int i=1; i<=cols; i++){
+            World.placeBeepers(rows/2, i, i);
+        }
     }
-
     //street = y
     //ave = x
     public static void pattern4(int street, int ave){
@@ -94,7 +99,15 @@ public class WorldBuilder{
         }
     }
     public static void pattern9(int rows, int cols){
-        System.out.println("ryan B");
+        World.reset();
+        World.setSize(rows, cols);
+        World.setVisible(true);
+        
+        for(int x=1; x<=cols; x++){
+          for(int y=1; y<=rows; y++){
+            if(y-x==0 || 1+(cols/2)==x || 1+(rows/2)==y || rows-x+1==y)World.placeBeepers(x, y, 1);  
+          }
+        }
     }
     public static void pattern10(int street, int ave){
         World.reset();
@@ -108,8 +121,18 @@ public class WorldBuilder{
         }
         World.placeBeepers(street,(ave/2)+1,1);
     }
-    public static void pattern11(int street, int ave){
-
+    public static void pattern11(int rows, int cols){
+        World.reset();
+        World.setSize(rows, cols);
+        World.setVisible(true);
+        
+        for(int x=1; x<=cols; x++){
+          for(int y=1; y<=rows; y++){
+            int newy = (cols+1)/2 - (y-(cols+1)/2);
+            if(rows == ((2*y)+x)-1 || rows == ((2*y)+x)-2)World.placeBeepers(x, y, 1); 
+            else if(rows == ((2*newy)+x)-1 || rows == ((2*newy)+x)-2)World.placeBeepers(x, y, 1); 
+          }
+        }
     }
     public static void pattern12(int street, int ave){
         World.reset();
